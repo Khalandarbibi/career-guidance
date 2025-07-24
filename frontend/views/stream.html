@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Select Stream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      body {
+        background-color: #f4f6f8;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+
+      select {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 1.5rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Select Stream</h2>
+      <form id="streamForm">
+        <select id="stream" required>
+          <option value="" disabled selected>Select your stream</option>
+          <option value="cs">Computer Science</option>
+          <option value="commerce">Commerce</option>
+          <option value="arts">Civil</option>
+          <option value="arts">EC</option>
+          <option value="arts">EEE</option>
+          <option value="arts">Arts</option>
+          <option value="arts">Machanical</option>
+        </select>
+        <button type="submit">Next</button>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("streamForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const selectedStream = document.getElementById("stream").value;
+        if (!selectedStream) {
+          alert("Please select a stream.");
+          return;
+        }
+        localStorage.setItem("stream", selectedStream);
+        window.location.href = "skill.html";
+      });
+    </script>
+  </body>
+</html>

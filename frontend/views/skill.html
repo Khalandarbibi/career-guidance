@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Select Stream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      body {
+        background-color: #f4f6f8;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+
+      select {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 1.5rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Select Skill</h2>
+      <form id="skillForm">
+        <select id="skill" required>
+          <option value="" disabled selected>Select your Skill</option>
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="devops">DevOps</option>
+          <option value="blockchain">Blockchain</option>
+          <option value="mlops">MLOps</option>
+        </select>
+        <button type="submit">Next</button>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("skillForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const selectedSkill = document.getElementById("skill").value;
+        if (!selectedSkill) {
+          alert("Please select a skill.");
+          return;
+        }
+        localStorage.setItem("skill", selectedSkill);
+        window.location.href = "dashboard.html";
+      });
+    </script>
+  </body>
+</html>
